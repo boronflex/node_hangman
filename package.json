@@ -1,0 +1,28 @@
+{
+  "name": "node_hangman",
+  "version": "1.0.0",
+  "description": "homework for week 12",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boronflex/node_hangman.git"
+  },
+  "keywords": [
+    "hangman",
+    "game",
+    "week12"
+  ],
+  "author": "kvp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/boronflex/node_hangman/issues"
+  },
+  "homepage": "https://github.com/boronflex/node_hangman#readme",
+  "dependencies": {
+    "inquirer": "^4.0.1",
+    "random-word": "^2.0.0"
+  }
+}

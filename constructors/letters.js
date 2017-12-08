@@ -15,8 +15,8 @@ var Letter = function(word, guess){
       this.guess = this.guess.toLowerCase();
       if (this.word.indexOf(this.guess) != -1){
         
-        for (var i=0; i<word.length; i++){
-          if (word[i]===this.guess){
+        for (var i=0; i<this.word.length; i++){
+          if (this.word[i]===this.guess){
             this.hits.push(i);
           }
         }
@@ -33,8 +33,13 @@ var Letter = function(word, guess){
 
 }
 
-// var tester = new Letter("awdord","o");
+var tester = new Letter;
 
-// tester.search();
+tester.word = "newword";
+tester.guess = "n";
+
+console.log(tester);
+
+console.log(tester.search());
 
 module.exports = Letter

@@ -12,49 +12,47 @@ function getNewWord(){
   pullRandomWord = pullRandomWord.newRandomWord;
 };
 
-//getNewWord();
+getNewWord();
 
 
 //parses words
 var verifyWord = new Word(pullRandomWord);
 
 verifyWord.addBlanks();
-verifyWord.showWord();
+
+//need to have a new game function that pulls new random word and adds blanks, then plays run game
 
 
 //verifies letter
-var verLetter = new Letter("buttface", "T");//newrandom word will go in here
+var verLetter = new Letter("face", "T");//newrandom word will go in here
 
-console.log(verLetter.search());
-
-
-//need constructor to parse word
-  //separate it into a string 
-  //count it
-  //put it on 'Word' object
-  //just write function here then convert to constructor
-  //show in 'message' in prompt
-
+//console.log(verLetter.search());
 
 //var guesses = 0
 
 function runGame(){
+
+  verifyWord.showWord();
   
   inquirer.prompt([
     
       {
         type: "input",
         name: "userInput",
-        message: pullRandomWord,//blanks will go here in this is just a place holder for now
-        suffix: "\n Guess a Letter: "
+        message: "\n Guess a Letter: "
       }
     
     ]).then(function(command) {
 
-      if (totalGuesses < guesses){
+      console.log(command.userInput);
+
+      //if (totalGuesses < guesses){
         //show guesses left
 
         //check if letter is in word
+
+        var verLetter = new Letter(pullRandomWord, command.userInput);
+
         //if letter is in word 
           //show success message
           //reveal letter in blanks
@@ -65,18 +63,16 @@ function runGame(){
           //run game again
         
         // runGame();
-      } else {
+      //} else {
         //show game over message
         //inquirer asking if want to play again
           //if yes run game again
           //if no end app
-      }
-
-      console.log(command.userInput);
+      //}
 
     
     });
 
   }
 
-
+runGame();

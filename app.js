@@ -23,7 +23,7 @@ verifyWord.showWord();
 
 
 //verifies letter
-var verLetter = new Letter("buttface", "T");
+var verLetter = new Letter("buttface", "T");//newrandom word will go in here
 
 console.log(verLetter.search());
 
@@ -34,6 +34,9 @@ console.log(verLetter.search());
   //put it on 'Word' object
   //just write function here then convert to constructor
   //show in 'message' in prompt
+
+
+//var guesses = 0
 
 function runGame(){
   
@@ -49,19 +52,25 @@ function runGame(){
     ]).then(function(command) {
 
       if (totalGuesses < guesses){
-        // runGame();
-      }
-
-      //verify guess letter is string type and length === 1;
-
-      //detemine if guess is in word
-
-      //show correct/wrong message
-
         //show guesses left
-        //prompt user to enter value
-      //if the user guesses reveal the letter 
 
+        //check if letter is in word
+        //if letter is in word 
+          //show success message
+          //reveal letter in blanks
+          //take away a guess
+          //run game again
+        //if letter is wrong or invalid
+          //take away a guess
+          //run game again
+        
+        // runGame();
+      } else {
+        //show game over message
+        //inquirer asking if want to play again
+          //if yes run game again
+          //if no end app
+      }
 
       console.log(command.userInput);
 

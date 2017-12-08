@@ -8,6 +8,9 @@ var Letter = function(word, guess){
   this.guess = guess;
 
   this.search = function(){
+
+  //need to limit length of input to one letter
+  //need to do a switch case here maybe
     if (this.validate === true){
       this.guess = this.guess.toLowerCase();
       if (this.word.indexOf(this.guess) != -1){

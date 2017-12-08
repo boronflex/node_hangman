@@ -24,7 +24,10 @@ verifyWord.addBlanks();
 
 
 //verifies letter
-var verLetter = new Letter("face", "T");//newrandom word will go in here
+var verLetter = new Letter;
+
+verLetter.word = "newword";
+
 
 //console.log(verLetter.search());
 
@@ -51,7 +54,9 @@ function runGame(){
 
         //check if letter is in word
 
-        var verLetter = new Letter(pullRandomWord, command.userInput);
+        verLetter.guess = command.userInput;
+
+        console.log(verLetter.search());
 
         //if letter is in word 
           //show success message

@@ -33,13 +33,13 @@ var Letter = function(word, guess){
 
 }
 
-var tester = new Letter;
+// var tester = new Letter;
 
-tester.word = "newword";
-tester.guess = "n";
+// tester.word = "newword";
+// tester.guess = "n";
 
-console.log(tester);
+// console.log(tester);
 
-console.log(tester.search());
+// console.log(tester.search());
 
 module.exports = Letter

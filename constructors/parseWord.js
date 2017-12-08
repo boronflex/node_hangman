@@ -23,9 +23,9 @@ var Word = function(word){
   };
 }
 
-var tester = new Word('blankets');
+// var tester = new Word('blankets');
 
-tester.addBlanks();
+// tester.addBlanks();
 
 //tester.showWord();
 

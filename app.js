@@ -5,8 +5,28 @@ var Word = require("./constructors/parseWord");
 var Letter = require("./constructors/letters");
 
 //pulls random word from the random word constructor
+
 var pullRandomWord = new randomWord;
-pullRandomWord = pullRandomWord.newRandomWord;
+
+function getNewWord(){
+  pullRandomWord = pullRandomWord.newRandomWord;
+};
+
+//getNewWord();
+
+
+//parses words
+var verifyWord = new Word(pullRandomWord);
+
+verifyWord.addBlanks();
+verifyWord.showWord();
+
+
+//verifies letter
+var verLetter = new Letter("buttface", "T");
+
+console.log(verLetter.search());
+
 
 //need constructor to parse word
   //separate it into a string 

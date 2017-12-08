@@ -1,4 +1,4 @@
-var Word = require("./parseWord");
+// var Word = require("./parseWord");
 
 var Letter = function(word, guess){
   
@@ -8,24 +8,30 @@ var Letter = function(word, guess){
   this.guess = guess;
 
   this.search = function(){
-    //if this.validate === true then run search
-    if (this.word.indexOf(this.guess) != -1){
-      
-      for (var i=0; i<word.length; i++){
-        if (word[i]===this.guess){
-          this.hits.push(i);
+    if (this.validate === true){
+      this.guess = this.guess.toLowerCase();
+      if (this.word.indexOf(this.guess) != -1){
+        
+        for (var i=0; i<word.length; i++){
+          if (word[i]===this.guess){
+            this.hits.push(i);
+          }
         }
+        return this.hits;
+      } else {
+        return "no match";
       }
-      return this.hits;
+
     } else {
-      console.log("no match");
+      return "please enter only alphanumeric characters";
     }
+
   }
 
 }
 
-var tester = new Letter("awdord","o");
+// var tester = new Letter("awdord","o");
 
-console.log(tester.search());
+// tester.search();
 
 module.exports = Letter

@@ -1,7 +1,7 @@
 //pulling a random word constructor
 const randomWord = require('random-word');
 
-var getRandomWord = function(){
+var GetRandomWord = function(){
   
   this.newRandomWord = randomWord();
 
@@ -11,4 +11,4 @@ var getRandomWord = function(){
 
 // console.log(tester.newRandomWord);
 
-module.exports = getRandomWord;
+module.exports = GetRandomWord;

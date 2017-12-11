@@ -76,7 +76,7 @@ function runGame(){
 
   console.log(`\nGuesses left: ${guesses}`);
 
-  console.log(`${verLetter.word}`) //for the TA's turn this on if you want to se the word, otherwise this game is hard as hell
+  //console.log(`${verLetter.word}`) //for the TA's turn this on if you want to see the word, otherwise this game is hard as hell
   
 
   if (guesses > 0 && verifyWord.blankWord.indexOf('_') !== -1){

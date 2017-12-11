@@ -29,13 +29,15 @@ Word.prototype.showletters = function(arr,letter){
   }
 };
 
-var tester = new Word('blankets');
+var tester = new Word('blanakeats');
 
 tester.addBlanks();
 
 tester.showWord();
 
-tester.showletters([2],"a");
+tester.showletters([1],"l");
+
+console.log("/n");
 
 tester.showWord();
 

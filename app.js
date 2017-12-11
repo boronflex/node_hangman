@@ -40,7 +40,7 @@ function runGame(){
   console.log(`${verLetter.word}`)
   
 
-  if (guesses > 0){
+  if (guesses > 0 && verifyWord.blankWord.indexOf('_') !== -1){
 
     inquirer.prompt([
       
@@ -76,6 +76,10 @@ function runGame(){
 
       });
 
+  } else if (verifyWord.blankWord.indexOf('_') === -1){
+
+    console.log("You win");
+  
   } else {
     
     console.log("Game Over");

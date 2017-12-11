@@ -23,10 +23,20 @@ var Word = function(word){
   };
 }
 
-// var tester = new Word('blankets');
+Word.prototype.showletters = function(arr,letter){
+  for (var i=0; i<=arr.length; i++){
+    this.blankWord.splice(arr[i],1,letter);
+  }
+};
 
-// tester.addBlanks();
+var tester = new Word('blankets');
 
-//tester.showWord();
+tester.addBlanks();
+
+tester.showWord();
+
+tester.showletters([2],"a");
+
+tester.showWord();
 
 module.exports = Word;

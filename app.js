@@ -20,6 +20,12 @@ var verifyWord = new Word(pullRandomWord);
 
 verifyWord.addBlanks();
 
+verifyWord.prototype.showletters = function(arr,letter){
+  for (var i=0; i<=arr.length; i++){
+    this.blankWord.splice(arr[i],1,this.letter);
+  }
+};
+
 //need to have a new game function that pulls new random word and adds blanks, then plays run game
 
 
@@ -42,7 +48,7 @@ function runGame(){
       {
         type: "input",
         name: "userInput",
-        message: "\n Guess a Letter: "
+        message: "\nGuess a Letter: "
       }
     
     ]).then(function(command) {

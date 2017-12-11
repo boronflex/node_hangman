@@ -33,6 +33,7 @@ var Letter = function(word, guess){
 
 }
 
+
 // var tester = new Letter;
 
 // tester.word = "newword";
@@ -42,4 +43,5 @@ var Letter = function(word, guess){
 
 // console.log(tester.search());
 
-module.exports = Letter
+
+module.exports = Letter;

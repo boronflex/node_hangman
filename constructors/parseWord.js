@@ -12,7 +12,7 @@ var Word = function(word){
   //this.word = word.split.split('');
   this.blankWord = [];
   this.addBlanks = function (){
-    for (var i=0; i<=word.length; i++){
+    for (var i=0; i<word.length; i++){
       this.blankWord.push('_');
     }
   };
@@ -24,21 +24,25 @@ var Word = function(word){
 }
 
 Word.prototype.showletters = function(arr,letter){
-  for (var i=0; i<=arr.length; i++){
-    this.blankWord.splice(arr[i],1,letter);
+  let iterable = arr;
+  for (const value of iterable) {
+    //console.log(value);
+    this.blankWord.splice(value,1,letter);
   }
 };
 
-var tester = new Word('blanakeats');
+// var tester = new Word('blankets');
 
-tester.addBlanks();
+// tester.addBlanks();
 
-tester.showWord();
+// tester.showWord();
 
-tester.showletters([1],"l");
+// console.log('\n')
 
-console.log("/n");
+// tester.showletters([1],"l");
 
-tester.showWord();
+// console.log("\n");
+
+// tester.showWord();
 
 module.exports = Word;

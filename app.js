@@ -20,11 +20,6 @@ var verifyWord = new Word(pullRandomWord);
 
 verifyWord.addBlanks();
 
-verifyWord.prototype.showletters = function(arr,letter){
-  for (var i=0; i<=arr.length; i++){
-    this.blankWord.splice(arr[i],1,this.letter);
-  }
-};
 
 //need to have a new game function that pulls new random word and adds blanks, then plays run game
 
@@ -32,7 +27,7 @@ verifyWord.prototype.showletters = function(arr,letter){
 //verifies letter
 var verLetter = new Letter;
 
-verLetter.word = "newword";
+verLetter.word = pullRandomWord;
 
 
 //console.log(verLetter.search());
@@ -42,6 +37,8 @@ verLetter.word = "newword";
 function runGame(){
 
   verifyWord.showWord();
+
+  console.log(verLetter.word)
   
   inquirer.prompt([
     
@@ -62,7 +59,23 @@ function runGame(){
 
         verLetter.guess = command.userInput;
 
-        console.log(verLetter.search());
+        searchLetter = verLetter.search();
+
+        if(typeof(verLetter.search())=== 'object'){
+
+          verifyWord.showletters(searchLetter,verLetter.guess);
+          
+          verLetter.hits = [];
+
+          runGame();
+
+        } else {
+
+          console.log(searchLetter);
+          runGame();
+        }
+
+
 
         //if letter is in word 
           //show success message

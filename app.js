@@ -21,82 +21,69 @@ var verifyWord = new Word(pullRandomWord);
 verifyWord.addBlanks();
 
 
-//need to have a new game function that pulls new random word and adds blanks, then plays run game
-
-
 //verifies letter
 var verLetter = new Letter;
 
 verLetter.word = pullRandomWord;
 
 
-//console.log(verLetter.search());
+//set number of guesses from difficulty of word (by length)
 
-//var guesses = 0
+var guesses = pullRandomWord.length * 2;
 
 function runGame(){
 
   verifyWord.showWord();
 
-  console.log(verLetter.word)
+  console.log(`\nGuesses left: ${guesses}`);
+
+  console.log(`${verLetter.word}`)
   
-  inquirer.prompt([
-    
-      {
-        type: "input",
-        name: "userInput",
-        message: "\nGuess a Letter: "
-      }
-    
-    ]).then(function(command) {
 
-      console.log(command.userInput);
+  if (guesses > 0){
 
-      //if (totalGuesses < guesses){
-        //show guesses left
-
-        //check if letter is in word
-
-        verLetter.guess = command.userInput;
-
-        searchLetter = verLetter.search();
-
-        if(typeof(verLetter.search())=== 'object'){
-
-          verifyWord.showletters(searchLetter,verLetter.guess);
-          
-          verLetter.hits = [];
-
-          runGame();
-
-        } else {
-
-          console.log(searchLetter);
-          runGame();
+    inquirer.prompt([
+      
+        {
+          type: "input",
+          name: "userInput",
+          message: "Guess a Letter: "
         }
+      
+      ]).then(function(command) {
 
+          //check if letter is in word
 
+          verLetter.guess = command.userInput;
 
-        //if letter is in word 
-          //show success message
-          //reveal letter in blanks
-          //take away a guess
-          //run game again
-        //if letter is wrong or invalid
-          //take away a guess
-          //run game again
-        
-        // runGame();
-      //} else {
-        //show game over message
-        //inquirer asking if want to play again
-          //if yes run game again
-          //if no end app
-      //}
+          searchLetter = verLetter.search();
 
+          if(typeof(verLetter.search())=== 'object'){
+
+            verifyWord.showletters(searchLetter,verLetter.guess);
+            
+            verLetter.hits = [];
+
+            runGame();
+
+          } else {
+
+            guesses -= 1;
+            // console.log(`Guesses left: ${guesses}`)
+            // console.log(searchLetter);
+            runGame();
+          }
+
+      });
+
+  } else {
     
-    });
-
+    console.log("Game Over");
+    //inquirer asking if want to play again
+      //if yes run game again
+      //if no end app
   }
+
+}
 
 runGame();

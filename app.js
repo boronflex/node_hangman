@@ -8,28 +8,34 @@ var Letter = require("./constructors/letters");
 //################################game set up
 //pulls random word from the random word constructor
 
-var pullRandomWord = new randomWord;
-
-function getNewWord(){
-  pullRandomWord = pullRandomWord.newRandomWord;
-};
+var pullRandomWord = {};
 
 //parses words
-var verifyWord = new Word(pullRandomWord);
-
-verifyWord.addBlanks();
+var verifyWord = {};
 
 //verifies letter
-var verLetter = new Letter;
-
-verLetter.word = pullRandomWord;
+var verLetter = {};
 
 //set number of guesses from difficulty of word (by length)
+var guesses = 0
 
-var guesses = pullRandomWord.length * 2;
+var guessArr = [];
 
 function setUp(){
-  getNewWord();
+
+  pullRandomWord = new randomWord;
+
+  pullRandomWord = pullRandomWord.newRandomWord;
+
+  verifyWord = new Word(pullRandomWord);
+  
+  verifyWord.addBlanks();
+
+  verLetter = new Letter;
+  
+  verLetter.word = pullRandomWord;
+
+  guesses = pullRandomWord.length * 2;
 
 }
 
@@ -50,7 +56,7 @@ function startOver(){
 
       switch (command.userInput) {
         case true:
-          getNewWord();
+          setUp()
           runGame();
           break;
 
@@ -89,22 +95,33 @@ function runGame(){
 
           verLetter.guess = command.userInput;
 
-          searchLetter = verLetter.search();
+          if (guessArr.indexOf(verLetter.guess) === -1){
 
-          if(typeof(verLetter.search())=== 'object'){
+            guessArr.push(verLetter.guess);
 
-            verifyWord.showletters(searchLetter,verLetter.guess);
-            
-            verLetter.hits = [];
+            searchLetter = verLetter.search();
 
-            runGame();
+            if(typeof(verLetter.search())=== 'object'){
+
+              verifyWord.showletters(searchLetter,verLetter.guess);
+              
+              verLetter.hits = [];
+
+              runGame();
+
+            } else {
+
+              guesses -= 1;
+              // console.log(`Guesses left: ${guesses}`)
+              // console.log(searchLetter);
+              runGame();
+            }
 
           } else {
 
-            guesses -= 1;
-            // console.log(`Guesses left: ${guesses}`)
-            // console.log(searchLetter);
+            console.log(`you already guessed ${verLetter.guess} try something else`);
             runGame();
+
           }
 
       });
@@ -121,5 +138,7 @@ function runGame(){
   }
 
 }
+
+setUp();
 
 runGame();
